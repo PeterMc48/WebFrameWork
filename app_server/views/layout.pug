@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title= title
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/font-awesome.min.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
+  body
+    .banner.div
+      .nav
+       .row
+         .col-12 
+            a(href="c:/webproject/views/index.pug") Movies
+            a(href="c:/webproject/views/reviews.pug") Reviews
+            a(href="c:/webproject/views/signIn.pug") Log In
+            a(href="c:/webproject/views/register.pug") Register
+    
+    block content
+    footer
+      .row
+        .col-12
+          small &copy; Simon Holmes 2017
+    script(src='https://code.jquery.com/jquery-3.1.1.slim.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js')
+    script(src='/javascripts/bootstrap.min.js')
