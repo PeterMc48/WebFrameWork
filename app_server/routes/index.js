@@ -5,9 +5,9 @@ const ctrlMembers = require('../controllers/Members');
 
 
 /* Movie pages. */
-router.get('/', ctrlMovies.home);
+router.get('/', ctrlMovies.Movies);
 router.get('/Reviews', ctrlMovies.reviews);
-router.get('/Movies', ctrlMovies.Movies);
+
 
 /*Members pages*/ 
 router.get('/SignIn', ctrlMembers.signIn);

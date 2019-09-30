@@ -1,60 +1,44 @@
 extends layout
 
 block content
-  .row
-    .col-12
-      h1 Movies
-  .row
-    .col-12.col-md-8
-      .card
-        .card-block
-          h4
-            a(href="/location") Starcups
-            small &nbsp;
-              i.fa.fa-star
-              i.fa.fa-star
-              i.fa.fa-star
-              i.fa.fa-star-o
-              i.fa.fa-star-o
-            span.badge.badge-pill.badge-default.float-right 100m
-          p.address 125 High Street, Reading, RG6 1PS
-          .facilities
-            span.badge.badge-warning Hot drinks
-            span.badge.badge-warning Food
-            span.badge.badge-warning Premium wifi
+  .container
+    .row
+      .col-12
+        h1 Movie
+        .search-container
+          form(action='/action_page.php')
+            input(type='text' placeholder='Search..' name='search')
+            button(type='submit') Submit
 
-      .card
-        .card-block
-          h4
-            a(href="/location") Cafe Hero
-            small &nbsp;
-              i.fa.fa-star
-              i.fa.fa-star
-              i.fa.fa-star-o
-              i.fa.fa-star-o
-              i.fa.fa-star-o
-            span.badge.badge-pill.badge-default.float-right 200m
-          p.address 125 High Street, Reading, RG6 1PS
-          .facilities
-            span.badge.badge-warning Hot drinks
-            span.badge.badge-warning Food
-            span.badge.badge-warning Premium wifi
-
-      .card
-        .card-block
-          h4
-            a(href="/location") Burger Queen
-            small &nbsp;
-              i.fa.fa-star
-              i.fa.fa-star
-              i.fa.fa-star
-              i.fa.fa-star
-              i.fa.fa-star
-            span.badge.badge-pill.badge-default.float-right 500m
-          p.address 125 High Street, Reading, RG6 1PS
-          .facilities
-            span.badge.badge-warning Food
-            span.badge.badge-warning Premium wifi
-
-    .col-12.col-md-4
-      p.lead Looking for wifi and a seat? Loc8r helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let Loc8r help you find the place you're looking for.
+      .row
+        .col-12
+          .card.card-primary.review-card
+            .card-block
+              img(src="../images/poster.jpg")
+              a.btn.btn-primary.float-right(href='/reviews') Add review
+              h2.card-title Customer reviews
+              .row.review
+                .col-12.no-gutters.review-header
+                  span.rating
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star
+                  span.reviewAuthor Simon Holmes
+                  small.reviewTimestamp 16 February 2017
+                .col-12
+                  p Great movie, well worth the watch.
+              .row.review
+                .col-12.no-gutters.review-header
+                  span.rating
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star
+                    i.fa.fa-star-o
+                    i.fa.fa-star-o
+                  span.reviewAuthor Charlie Chaplin
+                  small.reviewTimestamp 14 February 2017
+                .col-12
+                  p Good Movie, ending was confussing in some parts.
+    
