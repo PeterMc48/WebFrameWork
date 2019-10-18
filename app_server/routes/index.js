@@ -10,7 +10,7 @@ router.get('/Reviews', ctrlMovies.reviews);
 
 
 /*Members pages*/ 
-router.get('/SignIn', ctrlMembers.signIn);
+router.get('/login', ctrlMembers.logIn);
 router.get('/Register', ctrlMembers.register);
 
 module.exports = router;

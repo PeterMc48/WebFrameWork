@@ -1,44 +1,45 @@
 extends layout
 
 block content
-  .container
-    .row
-      .col-12
-        h1 Movie
+  .row.banner
+    .col-12
+        h1= pageHeader.title 
+            small &nbsp;#{pageHeader.strapline}
         .search-container
           form(action='/action_page.php')
             input(type='text' placeholder='Search..' name='search')
             button(type='submit') Submit
 
-      .row
-        .col-12
-          .card.card-primary.review-card
-            .card-block
-              img(src="../images/poster.jpg")
-              a.btn.btn-primary.float-right(href='/reviews') Add review
-              h2.card-title Customer reviews
-              .row.review
-                .col-12.no-gutters.review-header
-                  span.rating
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star
-                  span.reviewAuthor Simon Holmes
-                  small.reviewTimestamp 16 February 2017
-                .col-12
-                  p Great movie, well worth the watch.
-              .row.review
-                .col-12.no-gutters.review-header
-                  span.rating
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star
-                    i.fa.fa-star-o
-                    i.fa.fa-star-o
-                  span.reviewAuthor Charlie Chaplin
-                  small.reviewTimestamp 14 February 2017
-                .col-12
-                  p Good Movie, ending was confussing in some parts.
+  .row
+    .col-12.col-md-8
+      .card.card-primary.review-card
+        .card-block
+          h2=movies.name
+          img(src=movies.image)
+          a.btn.btn-primary.float-right(href='/reviews') Add review
+          h2.card-title Customer reviews
+          .row.review
+            .col-12.no-gutters.review-header
+              span.rating
+                i.fa.fa-star
+                i.fa.fa-star
+                i.fa.fa-star
+                i.fa.fa-star
+                i.fa.fa-star
+              span.reviewAuthor Simon Holmes
+              small.reviewTimestamp 16 February 2017
+            .col-12
+              p Great movie, well worth the watch.
+          .row.review
+            .col-12.no-gutters.review-header
+              span.rating
+                i.fa.fa-star
+                i.fa.fa-star
+                i.fa.fa-star
+                i.fa.fa-star-o
+                i.fa.fa-star-o
+              span.reviewAuthor Charlie Chaplin
+              small.reviewTimestamp 14 February 2017
+            .col-12
+              p Good Movie, ending was confussing in some parts.
     

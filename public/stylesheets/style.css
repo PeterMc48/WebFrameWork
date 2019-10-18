@@ -67,6 +67,10 @@ body {
 .search-container button:hover {
   background: #ccc;
 }
+.regbtn{
+  border-radius: 20px;
+  padding:10px;
+}
 
 @media screen and (max-width: 600px) {
   .search-container {
