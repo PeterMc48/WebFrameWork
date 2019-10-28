@@ -1,73 +1,46 @@
 const mongoose = require('mongoose');
 const Loc = mongoose.model('Movie');
 
-const movieCreate = function (req, res) {
-    res
-.status(200)
-.json({"status" : "success"});
-
- };
-const movieByName = function (req, res) { 
-    res
-.status(200)
-.json({"status" : "success"});
-
- };
-
-const movieReadOne = function (req, res) {
-    res
-.status(200)
-.json({"status" : "success"});
-
- };
-const movieUpdateOne = function (req, res) {
-    res
-.status(200)
-.json({"status" : "success"});
-
- };
-const movieDeleteOne = function (req, res) {
-    res
-.status(200)
-.json({"status" : "success"});
-
- };
-const reviewCreate = function (req, res) {
-    res
-.status(200)
-.json({"status" : "success"});
-
- };
-const reviewReadOne = function (req, res) { 
+const moviesCreate = function (req, res) { 
     res
 .status(200)
 .json({"status" : "success"});
 
 };
-const reviewUpdateOne = function (req, res) { 
+const moviesListByName = function (req, res) { 
     res
 .status(200)
 .json({"status" : "success"});
 
 };
-const reviewDeleteOne = function (req, res) {
+const moviesReadOne = function (req, res) { 
+    Loc
+    .findById(req.params.Movieid) 
+    .exec((err, Movie) => { 
+    res 
+    .status(200) 
+    .json(Movie); 
+    });
+    
+
+};
+const moviesUpdateOne = function (req, res) { 
+    res
+.status(200)
+.json({"status" : "success"});
+
+};
+const moviesDeleteOne = function (req, res) {
     res
 .status(200)
 .json({"status" : "success"});
 
  };
-
 
 module.exports = {
-  movieByName,
-  movieCreate,
-  movieReadOne,
-  movieUpdateOne,
-  movieDeleteOne,
-  reviewCreate,
-  reviewReadOne,
-  reviewUpdateOne,
-  reviewDeleteOne
+  moviesListByName,
+  moviesCreate,
+  moviesReadOne,
+  moviesUpdateOne,
+  moviesDeleteOne
 };
-
-

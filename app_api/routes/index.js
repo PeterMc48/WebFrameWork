@@ -2,28 +2,29 @@ const express = require('express');
 const router = express.Router();
 const ctrlMovies = require('../controllers/Movies');
 const ctrlMembers = require('../controllers/Members');
+const ctrlReviews = require('../Controllers/Reviews');
 
 //Movies
 
 router
     .route('/Movies')
-    .get(ctrlMovies.movieByName)
-    .post(ctrlMovies.movieCreate);
+    .get(ctrlMovies.moviesListByName)
+    .post(ctrlMovies.moviesCreate);
 router
-    .route('Movies/:MovieName')
-    .get(ctrlMovies.movieReadOne)
-    .put(ctrlMovies.movieUpdateOne)
-    .delete(ctrlMovies.movieDeleteOne);
+    .route('Movies/:Movieid')
+    .get(ctrlMovies.moviesReadOne)
+    .put(ctrlMovies.moviesUpdateOne)
+    .delete(ctrlMovies.moviesDeleteOne);
 // reviews
 router
   .route('/Movies/:Movieid/reviews')
-  .post(ctrlMovies.reviewCreate);
+  .post(ctrlReviews.reviewsCreate);
 
 router
-  .route('/Movies/:movieName/reviews/:movieName')
-  .get(ctrlMovies.reviewReadOne)
-  .put(ctrlMovies.reviewUpdateOne)
-  .delete(ctrlMovies.reviewDeleteOne);
+  .route('/Movies/:Movieid/reviews/:reviewid')
+  .get(ctrlReviews.reviewsReadOne)
+  .put(ctrlReviews.reviewsUpdateOne)
+  .delete(ctrlReviews.reviewsDeleteOne);
 //Members
 router
     .route('/Members')
