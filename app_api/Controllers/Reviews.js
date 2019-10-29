@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Loc = mongoose.model('Movie');
+const Loc = mongoose.model('Movies');
 
 const reviewsCreate = function (req, res) { };
 const reviewsReadOne = function (req, res) { };

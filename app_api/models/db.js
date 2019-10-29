@@ -1,18 +1,25 @@
 const mongoose = require('mongoose');
-let dbURI = 'mongodb+srv://mccaffertyp:<PA55W0RD12345>@clustermovie-j9qdk.mongodb.net/test?retryWrites=true&w=majority';
+let dbURI = 'mongodb+srv://mccaffertyp:PA55W0RD12345@clustermovie-j9qdk.mongodb.net/test?retryWrites=true&w=majority';
 if (process.env.NODE_ENV === 'production') {
     dbURI = process.env.MONGODB_URI;
 }  
-mongoose.connect(dbURI);
+mongoose.connect(String(dbURI),
+{
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}
+)
+.then(()=> console.log('Connected To  Mongo!!'))
+.catch(err => console.log(err));
 
 
-mongoose.connection.on('connected', () => {
-    console.log(`Mongoose connected to ${dbURI}`);
+mongoose.connection.on('connected', function() {
+    console.log('Mongoose connected to ' + dbURI);
   });
-  mongoose.connection.on('error', err => {
-    console.log('Mongoose connection error:', err);
+  mongoose.connection.on('error',function(err) {
+    console.log('Mongoose connection error:'+ err);
   });
-  mongoose.connection.on('disconnected', () => {
+  mongoose.connection.on('disconnected',function(){
     console.log('Mongoose disconnected');
   });
   

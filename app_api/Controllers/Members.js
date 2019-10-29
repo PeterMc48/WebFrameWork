@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Loc = mongoose.model('Movie');
+const Loc = mongoose.model('Movies');
 
 
 const memberName = function (req, res) { 

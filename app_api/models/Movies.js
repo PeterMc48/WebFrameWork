@@ -13,8 +13,24 @@ const reviewSchema = new mongoose.Schema({
     'default': Date.now
     }
     });
+
+    const memberSchema = new mongoose.Schema({
+        username :{
+            type: String,
+            required: true
+        },
+        email :{
+            type: String,
+            required: true
+        },
+        password : {
+            type: String,
+            required: true
+        } 
+    });
     
-const movieSchema = new mongoose.Schema({movieName: {
+const movieSchema = new mongoose.Schema({
+    movieName: {
     type: String,
     required: true
     },
@@ -32,21 +48,8 @@ const movieSchema = new mongoose.Schema({movieName: {
     reviews: [reviewSchema]
     
 });
-const memberSchema = new mongoose.Schema({
-    username :{
-        type: String,
-        required: true
-    },
-    email :{
-        type: String,
-        required: true
-    },
-    password : {
-        type: String,
-        required: true
-    } 
-});
 
-mongoose.model('Movie', movieSchema);
+
+mongoose.model('Movies', movieSchema);
 
 
