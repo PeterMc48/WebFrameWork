@@ -1,4 +1,29 @@
 const request = require('request');
+var apiOptions = {
+    server : "http://localhost:3000"
+};
+if(process.env.Node_ENV === 'production'){
+    apiOptions.server = "https://getting-mean-loc8r.herokuapp.com";
+}
+const requestOptions = { 
+    url : 'http://yourapi.com/api/path', 
+    method : 'GET', 
+    json : {}, 
+    qs : { 
+    offset : 20 
+    } 
+    }; 
+    request(requestOptions, (err, response, body) => { 
+    if (err) { 
+    console.log(err); 
+    } else if (response.statusCode === 200) { 
+    console.log(body); 
+    } else { 
+    console.log(response.statusCode); 
+    } 
+    });
+    
+    
 const mongoose = require('mongoose');
 const Loc = mongoose.model('Movies');
 
