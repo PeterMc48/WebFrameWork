@@ -5,7 +5,7 @@ const ctrlMembers = require('../controllers/Members');
 
 
 /* Movie pages. */
-router.get('/', ctrlMovies.Movies);
+router.get('/', ctrlMovies._renderHomepage);
 router.get('/Reviews', ctrlMovies.reviews);
 
 

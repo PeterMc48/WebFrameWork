@@ -25,27 +25,55 @@ const requestOptions = {
     
     
 const mongoose = require('mongoose');
-const Loc = mongoose.model('Movies');
+const Loc = mongoose.model('Movie');
 
+const buildMoiveList = function(req, res, results, stats){
+    let movies = [];
+    results.forEach((doc) => {
+        movies.push({
+            name: doc.obj.name,
+            image: doc.obj.image,
+            rating: doc.obj.rating,
+            description: doc.obj.description,
+            _id: doc.obj._id
+        });
+    });
+    return movies;
+};
+
+const  moviesListByName = function (req, res) { 
+  
+    res
+.status(200)
+.json({"status" : "success"});
+
+};
 
 const moviesCreate = function (req, res) { 
-    res
-.status(200)
-.json({"status" : "success"});
-
-};
-
-const moviesListByName = function (req, res) { 
-    res
-.status(200)
-.json({"status" : "success"});
+    loc.create({
+        movieName: req.body.movieName,
+        image: req.body.image,
+        rating: req.body.rating,
+        description: req.body.description
+    },(err, movie) => {
+        if(err) {
+            res
+                .status(400)
+                .json(err);
+        }
+        else {
+            res
+            .status(201)
+            .json(movie);
+        }
+    });
 };
 const moviesReadOne = function (req, res) { 
-    if(req.params && req.params.Moviesid){
+    if(req.params && req.params.movieid){
         Loc
-        .findById(req.params.Moviesid) 
-        .exec(function(err, Movies){ 
-            if(!Movies){
+        .findById(req.params.movieid) 
+        .exec((err, Movies) => { 
+            if(!Movie){
                 sendJsonResponse(res,404, {"message": "no movieid found"});
                 return;
             }
@@ -64,16 +92,73 @@ const moviesReadOne = function (req, res) {
     
    
 const moviesUpdateOne = function (req, res) { 
-    res
-.status(200)
-.json({"status" : "success"});
+    if(!req.params.movieid){
+        res
+        .status(404)
+        .json({
+            "message": "Not found, movieid is required"
+        });
+        return;
+    }
+    loc
+        .findById(req.params.movieid)
+        .select('-reviews -rating')
+        .exec((err, movie) => {
+            if(!movie) { 
+                res
+                    .status(404)
+                    .json({
+                        "message": "movieid not found"
+                    });
+                return;
+            } else if (err) {
+                res
+                    .status(400)
+                    .json(err);
+                return;
+            }
+            movie.name = req.body.name;
+            movie.image = req.body.image;
+            movie.description = req.body.description;
+            movie.save((err, movie) => {
+                if (err) {
+                    res
+                      .status(404)
+                      .json(err);
+                  } else {
+                    res
+                      .status(200)
+                      .json(movie);
+                  }
+            })
+
+        })
 
 };
 const moviesDeleteOne = function (req, res) {
-    res
-.status(200)
-.json({"status" : "success"});
-
+  const movieid = req.params.movieid;
+  if (movieid) {
+      loc
+        .findByIdAndRemove(movieid)
+        .exec((err, movie) => {
+            if(err)
+            {
+                res
+                    .status(404)
+                    .json(err);
+                    return;
+            }
+            res
+                .status(204)
+                .json(null);
+        });
+    }else {
+        res
+            .status(404)
+            .json({
+                "message": "No movieid"
+            });
+    }
  };
 
 module.exports = {

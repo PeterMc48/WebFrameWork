@@ -1,10 +1,10 @@
 extends layout
 
 block content
-  .row.banner
+  .row
     .col-12
         h1= pageHeader.title 
-            small &nbsp;#{pageHeader.strapline}
+        small &nbsp;#{pageHeader.strapline}
         .search-container
           form(action='/action_page.php')
             input(type='text' placeholder='Search..' name='search')
@@ -15,7 +15,7 @@ block content
       .card.card-primary.review-card
         .card-block
           h2=movies.name
-          img(src=movies.image)
+          img(src='#{movies.img}')
           a.btn.btn-primary.float-right(href='/reviews') Add review
           h2.card-title Customer reviews
           .row.review

@@ -1,15 +1,15 @@
   /* GET 'Movies' page */
   
 const _renderHomepage = function(req, res, responseBody){
-  res.render('movies', {
+  res.render('Movies', {
     title: 'Movie',
     pageHeader: {
-    title: 'Reviews',
+    title: 'Movie Reviews',
     strapline: 'Reviews for movies'
     },
     movies: { 
      name: 'Avengers EndGame',
-     img: '"../images/poster.jpg"',
+     img: 'public/images/poster.jpg',
      description: 'After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to reverse Thanos actions and restore balance to the universe. '
     },
      review: responseBody
@@ -44,6 +44,7 @@ const reviews = function(req, res){
 
 
 module.exports = {
-  reviews,
-  Movies
+  _renderHomepage,
+  reviews
+  
 };

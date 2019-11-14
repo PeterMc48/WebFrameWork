@@ -42,7 +42,7 @@ const movieSchema = new mongoose.Schema({
     type: String,
     required: true
     },
-    poster: {
+    image: {
         type: String,
         required: true
     },
@@ -53,11 +53,15 @@ const movieSchema = new mongoose.Schema({
         max: 5
 
     },
+    description: {
+        type: String,
+        required: true
+    },
     reviews: [reviewSchema]
     
 });
 
 
-mongoose.model('Movies', movieSchema);
+mongoose.model('Movie', movieSchema);
 
 
