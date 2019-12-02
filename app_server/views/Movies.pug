@@ -2,44 +2,11 @@ extends layout
 
 block content
   .row
-    .col-12
-        h1= pageHeader.title 
-        small &nbsp;#{pageHeader.strapline}
-        .search-container
-          form(action='/action_page.php')
-            input(type='text' placeholder='Search..' name='search')
-            button(type='submit') Submit
-
-  .row
     .col-12.col-md-8
-      .card.card-primary.review-card
-        .card-block
-          h2=movies.name
-          img(src='#{movies.img}')
-          a.btn.btn-primary.float-right(href='/reviews') Add review
-          h2.card-title Customer reviews
-          .row.review
-            .col-12.no-gutters.review-header
-              span.rating
-                i.fa.fa-star
-                i.fa.fa-star
-                i.fa.fa-star
-                i.fa.fa-star
-                i.fa.fa-star
-              span.reviewAuthor Simon Holmes
-              small.reviewTimestamp 16 February 2017
-            .col-12
-              p Great movie, well worth the watch.
-          .row.review
-            .col-12.no-gutters.review-header
-              span.rating
-                i.fa.fa-star
-                i.fa.fa-star
-                i.fa.fa-star
-                i.fa.fa-star-o
-                i.fa.fa-star-o
-              span.reviewAuthor Charlie Chaplin
-              small.reviewTimestamp 14 February 2017
-            .col-12
-              p Good Movie, ending was confussing in some parts.
-    
+      .error= message
+        app-home-list Loading
+
+block scripts
+  script(src='/build/main-es5.59c2050c5b03b91567ab.js')
+  script(src='/build/polyfills-es5.6696c533341b95a3d617.js')
+  script(src='/build/runtime-es5.edb2fcf2778e7bf1d426.js')
