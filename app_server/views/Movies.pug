@@ -2,11 +2,20 @@ extends layout
 
 block content
   .row
-    .col-12.col-md-8
-      .error= message
-        app-home-list Loading
+    .col-12
+        h1= pageHeader.title 
+        small &nbsp;#{pageHeader.strapline}
+        .search-container
+          form(action='/action_page.php')
+            input(type='text' placeholder='Search..' name='search')
+            button(type='submit') Submit
 
+  .row
+    .col-12.col-md-8
+      .card.card-primary.review-card
+        .card-block
+          
 block scripts
-  script(src='/build/main-es5.59c2050c5b03b91567ab.js')
-  script(src='/build/polyfills-es5.6696c533341b95a3d617.js')
-  script(src='/build/runtime-es5.edb2fcf2778e7bf1d426.js')
+    script(src='/build/runtime.edb2fcf2778e7bf1d426.js')
+    script(src='/build/polyfills.ef4b1e1fc703b3ff76e3.js')
+    script(src='/build/main.59c2050c5b03b91567ab.js')
