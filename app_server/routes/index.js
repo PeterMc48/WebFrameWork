@@ -5,8 +5,12 @@ const ctrlMembers = require('../controllers/Members');
 
 
 /* Movie pages. */
-router.get('/', ctrlMovies._renderHomepage);
-router.get('/Reviews', ctrlMovies.reviews);
+router.get('/', ctrlMovies.homelist);
+router.get('/movie/:movieid', ctrlMovies.movieInfo);
+router
+ .route('/movie/:movieid/review/new')
+ .get(ctrlMovies.addReview)
+ .post(ctrlMovies.doAddReview);
 
 
 /*Members pages*/ 
