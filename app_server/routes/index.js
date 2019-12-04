@@ -6,11 +6,9 @@ const ctrlMembers = require('../controllers/Members');
 
 /* Movie pages. */
 router.get('/', ctrlMovies.homelist);
-router.get('/movie/:movieid', ctrlMovies.movieInfo);
-router
- .route('/movie/:movieid/review/new')
- .get(ctrlMovies.addReview)
- .post(ctrlMovies.doAddReview);
+router.get('/review', ctrlMovies.addReview);
+router.post('/movie/:movieid/review/new',ctrlMovies.doAddReview);
+ 
 
 
 /*Members pages*/ 

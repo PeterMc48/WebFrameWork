@@ -9,13 +9,9 @@ block content
           form(action='/action_page.php')
             input(type='text' placeholder='Search..' name='search')
             button(type='submit') Submit
+          a.btn.btn-primary.float-right(href='/review') Add review
 
-  .row
-    .col-12.col-md-8
-      .card.card-primary.review-card
-        .card-block
-          
 block scripts
-    script(src='/build/runtime.edb2fcf2778e7bf1d426.js')
-    script(src='/build/polyfills.ef4b1e1fc703b3ff76e3.js')
-    script(src='/build/main.59c2050c5b03b91567ab.js')
+  script(src='/build/runtime-es5.edb2fcf2778e7bf1d426.js')
+  script(src='/build/polyfills-es5.ef4b1e1fc703b3ff76e3.js')
+  script(src='/build/main-es5.9208b05e03a0a8bee78c.js')

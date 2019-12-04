@@ -27,19 +27,7 @@ const requestOptions = {
 const mongoose = require('mongoose');
 const Loc = mongoose.model('Movie');
 
-const buildMoiveList = function(req, res, results, stats){
-    let movies = [];
-    results.forEach((doc) => {
-        movies.push({
-            name: doc.obj.name,
-            image: doc.obj.image,
-            rating: doc.obj.rating,
-            description: doc.obj.description,
-            _id: doc.obj._id
-        });
-    });
-    return movies;
-};
+
 
 const  moviesListByName = function (req, res) { 
   
