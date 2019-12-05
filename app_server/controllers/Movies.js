@@ -79,9 +79,8 @@ const _renderHomepage = function(req, res, responseBody){
       content = 'Something, somewhere, has gone just a little bit wrong.'; 
       }
       res.status(status); 
-      res.render('generic-text', { 
-      title : title, 
-      content : content 
+      res.render('login', { 
+    
       }); 
       };
       

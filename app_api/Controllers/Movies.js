@@ -62,18 +62,35 @@ const moviesReadOne = function (req, res) {
         .findById(req.params.movieid) 
         .exec((err, Movies) => { 
             if(!Movie){
-                sendJsonResponse(res,404, {"message": "no movieid found"});
+                
+                res
+                    .status(404)
+                    .json({
+                        "message": "no movie id found"
+                    });
+                //sendJsonResponse(res,404, {"message": "no movieid found"});
                 return;
             }
             else if(err){
-                sendJsonResponse(res,404,err);
+                res
+                    .status(404)
+                    .json({err});
+                //sendJsonResponse(res,404,err);
                 return;
             }
-            sendJsonResponse(res, 200, Movies);
+            res
+                    .status(404)
+                    .json({Movies});
+            //sendJsonResponse(res, 200, Movies);
     });
 }
     else{
-        sendJsonResponse(res,404, {"message": "no movieid in request"});
+        res
+            .status(404)
+            .json({
+                "message": "no movie id in request"
+            });
+        //sendJsonResponse(res,404, {"message": "no movieid in request"});
 }
 
 };
